@@ -1,23 +1,31 @@
+
 function compute()
 {
-    var principal= document.getElementById("principal").value;
-    var rate=document.getElementById("rate").value;
-    var years=document.getElementById("years").value;
-    var interest=principal*years*rate/100;
-    var year= new Date().getFullYear()+parseInt(years);
-    document.getElementById("result").innerHTML="If you deposit "+principal+",\<br\>at an interest rate of "+rate+"%\<br\>You will receive an amount of "+amount+",\<br\>in the year "+year+"\<br\>";
-}
-function updateRate()
-{
-    var rateval=document.getElementById("rate").value;
-    document.getElementById("rate_val").innerText=rateval;
-}
-function validation()
-{
-    let x=document.getElementById("principal").value;
-    if (x<=0){
-        alert("Enter a positive number");
-        document.getElementById("principal").focus();
+    if (principal.value < 1){
+        alert("Enter positive number");
+        principal.focus();
+        return;
     }
+    let interest = principal.value * years.value * RTCStatsEvent.value /100;
+    yearInFuture = new Date().getFullYear() + parseInt(years.value);
+    result = document.getElementById("result");
+    result.innerHTML = "<p>If you deposit <mark>" + principal.value +"</mark>,<br> an interest rate of <mark>" + RTCStatsEvent.value + "%</mark>.<br>You will receive an amount of <mark>" +interest+"</mark>,<br>in the year <mark>"+yearInFuture+"</mark></p>";
+
 }
-        
+
+function refreshSlider(){
+    rate.value
+    document.getElementById("rateLable").innerText = rate.value+ "%"}
+
+finishPage = () =>{
+    var rate = document.getElementById("rate");
+    var principal = document.getElementById("principal");
+    var years = document.getElementById("years");
+    years = document.getElementById("years");
+    for(i=1; i<=10; i++){
+        let element = document.createElement("option");
+        element.innerText = i;
+        element.setAttribute("value", i);
+        years.appendChild(element);
+    }
+}    
